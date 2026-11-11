@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171a18"><title>PixelPDF — Image to PDF Studio</title>
+<style>
+:root{--bg:#111412;--panel:#1a201c;--panel2:#222a24;--line:#344037;--text:#f1f4f0;--muted:#a5b0a7;--accent:#c5d9c2;--ink:#152016}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#354538 0,transparent 44%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif}.shell{max-width:1050px;margin:auto;padding:26px 18px 55px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:850}.mark{width:38px;height:38px;border-radius:12px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-weight:950;font-size:20px}.top small{color:var(--muted)}.hero{padding:43px 0 25px}.eyebrow{font-size:11px;letter-spacing:1.7px;color:var(--accent);font-weight:800}.hero h1{font-size:clamp(34px,6vw,53px);line-height:1.05;letter-spacing:-2px;margin:10px 0}.hero p{color:var(--muted);max-width:650px;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.8fr);gap:17px;align-items:start}.card{background:linear-gradient(150deg,#1d251f,#171c19);border:1px solid var(--line);border-radius:19px;padding:19px;box-shadow:0 20px 55px #0004}.drop{border:1.5px dashed #718272;border-radius:15px;padding:30px 16px;text-align:center;background:#202a22;transition:.18s}.drop.drag{background:#2b392d;border-color:var(--accent)}.upicon{margin:auto auto 10px;width:45px;height:45px;border-radius:14px;background:#354638;color:var(--accent);display:grid;place-items:center;font-size:23px}.drop h2{font-size:17px;margin:0 0 4px}.drop p{font-size:12px;color:var(--muted);margin:0 0 14px}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer;transition:.15s}.btn:hover{transform:translateY(-1px);filter:brightness(1.07)}.primary{background:var(--accent);color:var(--ink)}.secondary{background:#2b352e;color:var(--text);border:1px solid #414d43}.tiny{padding:6px 9px;font-size:12px}.head{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px}.head h3{font-size:14px;margin:0}.muted{color:var(--muted)}.count{font-size:12px;color:var(--muted)}.list{display:grid;gap:8px}.file{display:grid;grid-template-columns:50px minmax(0,1fr) auto;gap:10px;align-items:center;background:#171d19;border:1px solid var(--line);border-radius:12px;padding:8px}.thumb{width:50px;height:50px;object-fit:cover;border-radius:8px;background:#303831}.fname{font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.fsize{font-size:11px;color:var(--muted)}.actions{display:flex;gap:4px}.iconbtn{width:28px;height:28px;border:1px solid var(--line);border-radius:7px;background:#273129;color:white;cursor:pointer}.iconbtn:disabled{opacity:.3;cursor:not-allowed}.empty{text-align:center;color:var(--muted);font-size:13px;padding:18px}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:12px;color:#c6d0c7;font-weight:700}.field input,.field select{width:100%;padding:10px;background:#121713;border:1px solid var(--line);border-radius:9px;color:var(--text);outline:none}.field input:focus,.field select:focus{border-color:#9bb69a}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;margin:12px 0}.check input{accent-color:#bcd4b9}.full{width:100%;margin-top:8px}.status{font-size:12px;color:var(--accent);min-height:20px;margin-top:9px}.privacy{margin-top:14px;background:#202b22;border-radius:10px;padding:11px;color:#bdcbbc;font-size:11px}.coming{margin-top:17px}.coming h3{font-size:14px;margin:0 0 10px}.soonlist{display:grid;grid-template-columns:1fr 1fr;gap:8px}.soon{padding:10px;border:1px solid var(--line);background:#171d19;border-radius:10px;font-size:11px;color:#c4cec5}.soon b{display:block;font-size:12px;color:var(--text);margin-bottom:2px}.soon span{color:var(--accent);font-size:10px}.foot{text-align:center;color:#849087;font-size:11px;margin-top:27px}.foot strong{color:#c6d7c2}.hidden{display:none!important}@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{padding-top:34px}.top small{font-size:10px}.shell{padding:19px 13px 40px}}
+</style>
+</head>
+<body><main class="shell">
+<header class="top"><div class="brand"><div class="mark">P</div><span>PixelPDF</span></div><small>Free · Private · Browser-powered</small></header>
+<section class="hero"><div class="eyebrow">A SIMPLE PDF STUDIO</div><h1>Images in.<br>PDF out.</h1><p>Turn your pictures into a clean PDF in seconds. Arrange pages, choose quality, rename your file and protect it with a password — all on your device.</p></section>
+<section class="layout">
+<div class="card">
+ <div class="drop" id="drop"><div class="upicon">↑</div><h2>Drop your images here</h2><p>JPG, PNG, WEBP and more supported by your browser</p><button class="btn primary" id="choose">Choose images</button><input id="picker" type="file" accept="image/*" multiple class="hidden"></div>
+ <div class="head"><h3>Your pages</h3><div><span class="count" id="count">0 images</span> <button class="btn secondary tiny" id="clear">Clear all</button></div></div>
+ <div class="list" id="list"><div class="empty">No images added yet. Choose or drop images to get started.</div></div>
+</div>
+<aside class="card">
+ <h3 style="margin:0 0 14px;font-size:16px">PDF settings</h3>
+ <div class="field"><label for="filename">PDF file name</label><input id="filename" value="my-images" maxlength="80" placeholder="Enter PDF name"></div>
+ <div class="two">
+  <div class="field"><label for="paper">Page size</label><select id="paper"><option value="a4">A4</option><option value="letter">Letter</option></select></div>
+  <div class="field"><label for="orientation">Orientation</label><select id="orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></div>
+ </div>
+ <div class="field"><label for="quality">Compression / quality</label><select id="quality"><option value="high">High quality · Larger PDF</option><option value="medium" selected>Balanced · Recommended</option><option value="low">Low size · More compression</option></select></div>
+ <label class="check"><input type="checkbox" id="passwordToggle"> Password-protect this PDF</label>
+ <div class="field hidden" id="passwordWrap"><label for="password">PDF password</label><input id="password" type="password" minlength="1" maxlength="100" autocomplete="new-password" placeholder="Enter a password"></div>
+ <button class="btn primary full" id="make">↓ Create & download PDF</button>
+ <div class="status" id="status" aria-live="polite"></div>
+ <div class="privacy">🔒 <b>Privacy first:</b> your images are processed locally in this browser. Nothing is uploaded to PixelPDF.</div>
+ <div class="coming"><h3>More tools coming soon</h3><div class="soonlist">
+  <div class="soon"><b>PDF to Images</b><span>COMING SOON</span></div><div class="soon"><b>Merge PDFs</b><span>COMING SOON</span></div>
+  <div class="soon"><b>Compress PDF</b><span>COMING SOON</span></div><div class="soon"><b>Split PDF</b><span>COMING SOON</span></div>
+  <div class="soon"><b>Image Converter</b><span>COMING SOON</span></div><div class="soon"><b>Rotate PDF</b><span>COMING SOON</span></div>
+ </div></div>
+</aside></section>
+<footer class="foot">Made with care by <strong>Adarsh</strong> · PixelPDF — Free PDF tools for everyone</footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.20/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.20/vfs_fonts.js"></script>
+<script>
+const picker=document.getElementById('picker'),drop=document.getElementById('drop'),list=document.getElementById('list'),count=document.getElementById('count'),status=document.getElementById('status');
+let images=[];
+const fmt=n=>n<1024*1024?(n/1024).toFixed(0)+' KB':(n/1024/1024).toFixed(1)+' MB';
+function addFiles(files){[...files].filter(f=>f.type.startsWith('image/')).forEach(file=>{const url=URL.createObjectURL(file);images.push({file,url,id:crypto.randomUUID?.()||String(Date.now()+Math.random())})});render();if(!images.length)status.textContent='Please choose image files.'}
+function render(){count.textContent=images.length+' image'+(images.length===1?'':'s');list.innerHTML='';if(!images.length){list.innerHTML='<div class="empty">No images added yet. Choose or drop images to get started.</div>';return}
+images.forEach((im,i)=>{const row=document.createElement('div');row.className='file';row.innerHTML=`<img class="thumb" src="${im.url}" alt=""><div><div class="fname"></div><div class="fsize">${fmt(im.file.size)}</div></div><div class="actions"><button class="iconbtn" title="Move up" ${i===0?'disabled':''}>↑</button><button class="iconbtn" title="Move down" ${i===images.length-1?'disabled':''}>↓</button><button class="iconbtn" title="Remove">×</button></div>`;row.querySelector('.fname').textContent=im.file.name;const [up,down,remove]=row.querySelectorAll('button');up.onclick=()=>move(i,-1);down.onclick=()=>move(i,1);remove.onclick=()=>{URL.revokeObjectURL(im.url);images.splice(i,1);render()};list.append(row)})}
+function move(i,d){const j=i+d;if(j<0||j>=images.length)return;[images[i],images[j]]=[images[j],images[i]];render()}
+document.getElementById('choose').onclick=()=>picker.click();picker.onchange=e=>{addFiles(e.target.files);picker.value=''};
+document.getElementById('clear').onclick=()=>{images.forEach(x=>URL.revokeObjectURL(x.url));images=[];render();status.textContent=''};
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));
+drop.addEventListener('drop',e=>addFiles(e.dataTransfer.files));
+document.getElementById('passwordToggle').onchange=e=>document.getElementById('passwordWrap').classList.toggle('hidden',!e.target.checked);
+function loadImage(file){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{URL.revokeObjectURL(img.src);resolve(img)};img.onerror=reject;img.src=URL.createObjectURL(file)})}
+function canvasData(img,quality,maxSide){let w=img.naturalWidth,h=img.naturalHeight;const scale=Math.min(1,maxSide/Math.max(w,h));w=Math.max(1,Math.round(w*scale));h=Math.max(1,Math.round(h*scale));const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);return c.toDataURL('image/jpeg',quality)}
+document.getElementById('make').onclick=async()=>{
+ if(!images.length){status.textContent='Add at least one image first.';return}
+ if(!window.pdfMake){status.textContent='PDF engine did not load. Check your internet connection and reload.';return}
+ const protect=document.getElementById('passwordToggle').checked,password=document.getElementById('password').value;
+ if(protect&&!password){status.textContent='Enter a password or turn off password protection.';return}
+ const btn=document.getElementById('make');btn.disabled=true;btn.textContent='Creating PDF…';
+ try{
+  const level=document.getElementById('quality').value;
+  const cfg={high:{q:.94,max:5000},medium:{q:.78,max:2600},low:{q:.48,max:1500}}[level];
+  const paper=document.getElementById('paper').value,orientation=document.getElementById('orientation').value;
+  const pageSizes={a4:{width:595.28,height:841.89},letter:{width:612,height:792}};
+  const page=pageSizes[paper]||pageSizes.a4;
+  const pageW=orientation==='landscape'?page.height:page.width,pageH=orientation==='landscape'?page.width:page.height;
+  const margin=24,content=[];
+  for(let i=0;i<images.length;i++){
+   status.textContent=`Preparing image ${i+1} of ${images.length}…`;
+   const img=await loadImage(images[i].file);
+   const data=canvasData(img,cfg.q,cfg.max);
+   const item={image:data,fit:[pageW-margin*2,pageH-margin*2],alignment:'center',margin:[0,0,0,0]};
+   if(i<images.length-1)item.pageBreak='after';
+   content.push(item);
+  }
+  const filename=(document.getElementById('filename').value.trim()||'my-images').replace(/[\\/:*?"<>|]/g,'-').replace(/\.pdf$/i,'')+'.pdf';
+  const definition={
+   pageSize:paper.toUpperCase(),pageOrientation:orientation,pageMargins:margin,
+   compress:true,version:protect?'1.7ext3':'1.5',
+   info:{title:filename.replace(/\.pdf$/i,''),author:'Adarsh',creator:'PixelPDF by Adarsh'},
+   content
+  };
+  if(protect){
+   definition.userPassword=password;
+   definition.ownerPassword=password+'-owner-'+crypto.getRandomValues(new Uint32Array(2)).join('');
+   definition.permissions={printing:'highResolution',modifying:false,copying:false,annotating:false,fillingForms:false,contentAccessibility:true,documentAssembly:false};
+  }
+  status.textContent='Building your PDF…';
+  pdfMake.createPdf(definition).download(filename);
+  status.textContent=protect?'Done! Your password-protected PDF is downloading.':'Done! Your PDF is downloading.';
+ }catch(err){console.error(err);status.textContent='Could not create PDF. Try fewer or smaller images.'}
+ finally{btn.disabled=false;btn.textContent='↓ Create & download PDF'}
+};
+</script></body></html>
